@@ -1,0 +1,23 @@
+{
+  "hosting": [
+    {
+      "target": "site-marketing",
+      "public": "marketing-dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "minha-app",
+      "public": "dist",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
