@@ -4,182 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KmLucro Pro — O Comando Financeiro do Motorista TVDE</title>
+    <meta name="description" content="A ferramenta definitiva para frotas e motoristas de TVDE converterem faturação bruta em lucro líquido real. CPK real, gestão de turnos e o Recibo Visual.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@600;800;900&display=swap">
-    <style>
-        /* CSS RÁPIDO E ULTRA-MODERNO (Tema Escuro e Lime-Green da App) */
-        :root {
-            --bg: #0d0d0d;
-            --bg-card: #161616;
-            --border: #262626;
-            --text: #ffffff;
-            --muted: #a3a3a3;
-            --lime: #c8f135;
-            --lime-dim: #1e2b08;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1.1;
-        }
-        h1 span { color: var(--lime); }
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        /* GRID DE PREÇOS / PLANOS */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        .price-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .price-card:hover {
-            border-color: var(--lime);
-            transform: translateY(-4px);
-        }
-        .price-card.featured {
-            border: 2px solid var(--lime);
-            background: radial-gradient(circle at top right, #1d2c04, var(--bg-card) 60%);
-        }
-        .badge-pop {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--lime);
-            color: #000;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-        .plan-name {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: var(--lime);
-            margin-bottom: 10px;
-        }
-        .plan-price {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-        .plan-price span {
-            font-size: 1rem;
-            color: var(--muted);
-            font-weight: normal;
-        }
-        .plan-desc {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            min-height: 50px;
-        }
-        .btn-buy {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: var(--text);
-            color: #000;
-            text-align: center;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: background 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-buy:hover {
-            background: var(--lime);
-        }
-        .featured .btn-buy {
-            background: var(--lime);
-        }
-        .featured .btn-buy:hover {
-            background: #b5db2e;
-        }
-        /* SECÇÃO DE RECURSOS E FAQS */
-        .section-title {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 2rem;
-            text-transform: uppercase;
-            margin: 60px 0 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-        }
-        .features-list, .faq-list {
-            margin-bottom: 40px;
-        }
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        .faq-question {
-            font-weight: bold;
-            color: var(--text);
-            margin-bottom: 8px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-        }
-        .faq-answer {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <header class="navbar">
+        <a href="/" class="navbar-brand">
+            <svg viewBox="0 0 512 512" width="36" height="36" aria-hidden="true">
+                <rect width="512" height="512" rx="112" fill="#c8f135"/>
+                <text x="256" y="290" text-anchor="middle" font-family="'Barlow Condensed',Arial,sans-serif" font-weight="900" font-size="240" fill="#0d0d0d" letter-spacing="-4">K€</text>
+            </svg>
+            <span>KmLucro <b>Pro</b></span>
+        </a>
+        <a href="https://app.kmlucro.pt" class="btn-login">Entrar na App ➔</a>
+    </header>
+
+    <header class="hero">
         <h1>KmLucro <span>Pro</span></h1>
         <p class="subtitle">A ferramenta definitiva para frotas e motoristas de TVDE converterem faturação bruta em lucro líquido real.</p>
     </header>
 
     <div class="container">
-        
+
+        <section class="product-showcase">
+            <h2 class="section-title" style="text-align:center;border:none;">Vê a diferença em tempo real</h2>
+            <div class="showcase-grid">
+
+                <div class="phone-mockup">
+                    <div class="phone-mockup-screen">
+                        <div class="mockup-brand"><span class="k-badge">K€</span> KmLucro Pro</div>
+                        <div class="mockup-kpi-grid">
+                            <div class="mockup-kpi wide">
+                                <div class="mockup-kpi-lbl">Ganho por Hora</div>
+                                <div class="mockup-kpi-val">14,20&nbsp;€/h</div>
+                            </div>
+                            <div class="mockup-kpi">
+                                <div class="mockup-kpi-lbl">Margem Líquida</div>
+                                <div class="mockup-kpi-val">58%</div>
+                            </div>
+                            <div class="mockup-kpi">
+                                <div class="mockup-kpi-lbl">CPK Real</div>
+                                <div class="mockup-kpi-val">0,18&nbsp;€/km</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="phone-mockup-caption">Painel de Controlo — <em>Simulação Ilustrativa</em></p>
+                </div>
+
+                <div class="phone-mockup">
+                    <div class="phone-mockup-screen receipt-mockup">
+                        <div class="mockup-brand" style="justify-content:center;"><span class="k-badge">K€</span> KmLucro Pro</div>
+                        <div class="r-label">As plataformas dizem que faturaste</div>
+                        <div class="r-bruto">120,00&nbsp;€</div>
+                        <div class="r-arrow">↓</div>
+                        <div class="r-label">O que realmente levas para casa</div>
+                        <div class="r-real">78,40&nbsp;€</div>
+                        <div class="r-rows">
+                            <div class="r-row"><span>Comissão Plataforma (25% s/ tributável)</span><span>-25,00&nbsp;€</span></div>
+                            <div class="r-row"><span>IVA (5,66% ef.)</span><span>-6,60&nbsp;€</span></div>
+                            <div class="r-row"><span>Combustível + Desgaste</span><span>-10,00&nbsp;€</span></div>
+                        </div>
+                        <div class="r-watermark">kmlucro.pt</div>
+                    </div>
+                    <p class="phone-mockup-caption">O Recibo da Verdade — <em>Simulação Ilustrativa</em></p>
+                </div>
+
+            </div>
+        </section>
+
         <section class="pricing-section">
             <h2 class="section-title" style="text-align: center; border: none;">Escolha o seu plano de voo</h2>
             <div class="pricing-grid">
-                
+
                 <div class="price-card">
                     <div>
                         <div class="plan-name">Acesso Mensal</div>
@@ -256,21 +154,33 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">Como funciona a entrega do e-book?</div>
-                    <div class="faq-answer">Assim que o pagamento for confirmado pelo Stripe, receberá imediatamente um e-mail com o link para descarregar o e-book "Matemática ao Volante".</div>
+                    <div class="faq-answer">O e-book "Matemática ao Volante" será disponibilizado e enviado para o seu e-mail de registo num prazo máximo de 24 horas após a confirmação de pagamento pelo Stripe.</div>
                 </div>
             </div>
         </section>
 
     </div>
 
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="/termos.html">Termos de Utilização</a>
+            <a href="/privacidade.html">Política de Privacidade</a>
+            <a href="/isencao.html">Isenção de Responsabilidade</a>
+        </div>
+        <p style="max-width:640px;margin:0 auto 16px;color:#777;font-size:.78rem;line-height:1.6;">
+            Aviso de Isenção de Responsabilidade: A KmLucro Pro é uma ferramenta financeira independente de apoio à atividade de TVDE. Não possui qualquer afiliação, associação, patrocínio ou parceria comercial com as marcas Uber Technologies Inc., Bolt Technology OÜ, ou com as suas respetivas subsidiárias em Portugal. As marcas mencionadas são utilizadas de forma puramente referencial ao abrigo do Artigo 14.º do Regulamento (UE) 2017/1001.
+        </p>
+        <p>© 2026 Momento Eficaz, Lda. Todos os direitos reservados.</p>
+    </footer>
+
     <script>
         // Links de Pagamento Diretos do Stripe (Stripe Payment Links)
-        // Substitui estes links de teste pelos teus links reais gerados no Stripe Dashboard
+        // Substitui cada INSERT_LIVE_LINK_HERE_* pelo link real gerado no Stripe Dashboard.
         const STRIPE_LINKS = {
-            monthly: 'https://buy.stripe.com/test_fZu5kFgpl75b2Rgc3Wfw400', 
-            annual:  'https://buy.stripe.com/test_00w9AV1ur3SZ3Vk8RKfw401',
-            ebook:   'https://buy.stripe.com/teu_link_stripe_ebook_aqui', 
-            pack:    'https://buy.stripe.com/teu_link_stripe_pack_completo_aqui'
+            monthly: 'INSERT_LIVE_LINK_HERE_MONTHLY',
+            annual:  'INSERT_LIVE_LINK_HERE_ANNUAL',
+            ebook:   'INSERT_LIVE_LINK_HERE_EBOOK',
+            pack:    'INSERT_LIVE_LINK_HERE_PACK'
         };
 
         function checkout(planKey) {
